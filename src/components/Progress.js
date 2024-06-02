@@ -1,4 +1,10 @@
-function Progress({ index, numQuestions, points, maxPossiblePoints, answer }) {
+import { useContext } from "react";
+import { QuizContext } from "../contexts/QuizContext";
+
+function Progress() {
+  const { index, answer, points, numQuestions, maxPossiblePoints } =
+    useContext(QuizContext);
+
   return (
     <header className="progress">
       <progress max={numQuestions} value={index + Number(answer !== null)} />
